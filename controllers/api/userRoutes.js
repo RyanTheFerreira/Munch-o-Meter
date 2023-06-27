@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
-router.post('/register', async (re, res))
+// router.post('/register', async (re, res))
 
 
 router.post('/login', async (req, res) => {
