@@ -15,6 +15,7 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
 // Route for user registration
 router.post('/register', async (req, res) => {
   try {
@@ -28,6 +29,7 @@ router.post('/register', async (req, res) => {
     res.status(500).json({ message: 'Failed to register user.' });
   }
 });
+
 
 
 router.post('/login', async (req, res) => {
