@@ -90,9 +90,9 @@ router.post
 // Route for user profile page
 router.get('/profile', async (req, res) => {
   try {
-    const userId = req.userId; // Assuming you have a middleware to extract the authenticated user's ID
+    const userId = req.userId;
     
-    // Code to retrieve user data from the database
+    
     const user = await User.findByPk(userId);
     
     if (!user) {
