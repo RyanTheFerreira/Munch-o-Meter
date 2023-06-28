@@ -22,10 +22,10 @@ router.post('/', async (req, res) => {
 // Route for user registration
 router.post('/register', async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { username, email, password } = req.body;
     console.log(req.body);
     // Code to create a new user in the database
-    const newUser = await User.create({ name, email, password });
+    const newUser = await User.create({ username, email, password });
     console.log(newUser);
     req.session.save(() => {
       req.session.user_id = newUser.id;
@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect email, please try again' });
       return;
     }
 
@@ -58,7 +58,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect password, please try again' });
       return;
     }
 
