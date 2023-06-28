@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+/// this is a test in this page
+
+
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -19,12 +22,19 @@ router.post('/', async (req, res) => {
 // Route for user registration
 router.post('/register', async (req, res) => {
   try {
-    const { username, password } = req.body;
-    
+    const { name, email, password } = req.body;
+    console.log(req.body);
     // Code to create a new user in the database
-    const newUser = await User.create({ username, password });
+    const newUser = await User.create({ name, email, password });
+    console.log(newUser);
+    req.session.save(() => {
+      req.session.user_id = newUser.id;
+      req.session.logged_in = true;
+      res.status(200).json(newUser);
+    });
+
     
-    res.status(201).json({ message: 'User registered successfully!' });
+    // res.status(201).json({ message: 'User registered successfully!' });
   } catch (err) {
     res.status(500).json({ message: 'Failed to register user.' });
   }

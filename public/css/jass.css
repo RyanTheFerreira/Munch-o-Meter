@@ -19,6 +19,7 @@ html {
  */
 body {
   margin: 0;
+  background-color: cadetblue;
 }
 
 /**
@@ -35,6 +36,8 @@ main {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  border-radius: 3px;
+  border: #000000;
 }
 
 /* Grouping content
@@ -373,6 +376,8 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+  border-radius: 10px;
+  border: black;
 }
 
 h2 {
