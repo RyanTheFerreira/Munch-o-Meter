@@ -1,0 +1,24 @@
+.mainMenu{
+    /* background-color: blueviolet; */
+    background-image: url("views/layouts/assest/healthy-food-slateboard-with-copy-space.jpg");
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+li {  font-size: 30px; 
+    text-decoration-line: underline;
+    
+}
+
+li a {
+    color: beige;
+}
+
+body {
+    background-color: #45bce7;
+}

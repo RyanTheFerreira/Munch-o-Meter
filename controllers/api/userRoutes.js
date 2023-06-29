@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+/// this is a test in this page
+
+
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -19,17 +22,23 @@ router.post('/', async (req, res) => {
 // Route for user registration
 router.post('/register', async (req, res) => {
   try {
-    const { username, password } = req.body;
-    
+    const { username, email, password } = req.body;
+    console.log(req.body);
     // Code to create a new user in the database
-    const newUser = await User.create({ username, password });
+    const newUser = await User.create({ username, email, password });
+    console.log(newUser);
+    req.session.save(() => {
+      req.session.user_id = newUser.id;
+      req.session.logged_in = true;
+      res.status(200).json(newUser);
+    });
+
     
-    res.status(201).json({ message: 'User registered successfully!' });
+    // res.status(201).json({ message: 'User registered successfully!' });
   } catch (err) {
     res.status(500).json({ message: 'Failed to register user.' });
   }
 });
-
 
 
 router.post('/login', async (req, res) => {
@@ -39,7 +48,7 @@ router.post('/login', async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect email, please try again' });
       return;
     }
 
@@ -48,7 +57,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect password, please try again' });
       return;
     }
 
@@ -76,6 +85,19 @@ router.post('/logout', (req, res) => {
 
 
 router.post
+/// This was added to coonect the page
+// Add a new route for the nutrition page
+router.get('/nutrition', async (req, res) => {
+  try {
+    // Handle any necessary logic for the nutrition page
+    res.render('nutrition', {
+      // Pass any necessary data to the nutrition template
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // Route for user profile page
 router.get('/profile', async (req, res) => {
