@@ -41,7 +41,6 @@ router.post('/register', async (req, res) => {
 });
 
 
-
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -86,6 +85,19 @@ router.post('/logout', (req, res) => {
 
 
 router.post
+/// This was added to coonect the page
+// Add a new route for the nutrition page
+router.get('/nutrition', async (req, res) => {
+  try {
+    // Handle any necessary logic for the nutrition page
+    res.render('nutrition', {
+      // Pass any necessary data to the nutrition template
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // Route for user profile page
 router.get('/profile', async (req, res) => {

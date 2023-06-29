@@ -6,12 +6,13 @@ const loginFormHandler = async (event) => {
     const email = document.querySelector('#login-register').value.trim();
     const password = document.querySelector('#password-register').value.trim();
     const username = document.querySelector('#name-register').value.trim();
+   
   
     if (email && password && username) {
       // Send the e-mail and password to the server
       const response = await fetch('/api/users/register', {
         method: 'POST',
-        body: JSON.stringify({ email, username, password }),
+        body: JSON.stringify({ email, username, password}),
         headers: { 'Content-Type': 'application/json' },
       });
   
