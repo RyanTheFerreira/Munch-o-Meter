@@ -1,45 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Food Table</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+  <title>Nutrition Table</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
+  <style>
+    .header {
+      background-image: url("/assest/Images/mainp-image.jpg");
+      background-size: cover;
+      background-position: center;
+      height: 200px;
+      position: relative;
+      border-radius: 18px;
+    }
+
+    .header-title {
+      text-align: right;
+      color: #fff;
+      padding-top: 120px;
+      font-size: xx-large;
+      display: inline-block;
+      animation: waveText 2s ease-in-out infinite;
+      padding-left: 422px;
+      font-weight: 600;
+    }
+
+    @keyframes waveText {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .container {
+      margin-top: 20px;
+      margin-bottom: 200px;
+      background-color: #e6b043;
+    border-radius: 17px;
+    border-left-style: solid;
+    }
+    
+    .form-container {
+      display: inline-block;
+      width: 40%;
+      vertical-align: top;
+    }
+
+    .table-container {
+      display: inline-block;
+      width: 55%;
+      margin-left: 5%;
+    }
+
+  </style>
+</head>
 <body>
+  <div class="header">
+    <h1 class="header-title">
+      <span class="d-inline-block" style="animation-delay: 0s;">M</span>
+      <span class="d-inline-block" style="animation-delay: 0.1s;">u</span>
+      <span class="d-inline-block" style="animation-delay: 0.2s;">n</span>
+      <span class="d-inline-block" style="animation-delay: 0.3s;">c</span>
+      <span class="d-inline-block" style="animation-delay: 0.4s;">h</span>
+      <span class="d-inline-block" style="animation-delay: 0.5s;">-</span>
+      <span class="d-inline-block" style="animation-delay: 0.6s;">O</span>
+      <span class="d-inline-block" style="animation-delay: 0.7s;">-</span>
+      <span class="d-inline-block" style="animation-delay: 0.8s;">M</span>
+      <span class="d-inline-block" style="animation-delay: 0.9s;">e</span>
+      <span class="d-inline-block" style="animation-delay: 1s;">t</span>
+      <span class="d-inline-block" style="animation-delay: 1.1s;">e</span>
+      <span class="d-inline-block" style="animation-delay: 1.2s;">r</span>
+           
+    </h1>
+  </div>
+  
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <p><h2> Main Menu:</h2></p>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/register" >Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/nutrition">Nutrition</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutus">About us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <div class="container">
-    <h1>Food Table</h1>
-    <table class="table">
+    <h1 class="mt-4">Nutrition Table</h1>
+
+    <h2 class="mt-4">Please enter the Name of the food you want information on!</h2>
+    <form id="meal-form">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="serving-size">Serving Size:</label>
+        <input type="text" class="form-control" id="serving-size" name="servingSize" required>
+      </div>
+
+        <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" class="form-control" id="date" name="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="meal-type">Meal Type:</label>
+        <select class="form-control" id="meal-type" name="mealType" required>
+          <option value="">Select Meal Type</option>
+          <option value="breakfast">Breakfast</option>
+          <option value="lunch">Lunch</option>
+          <option value="dinner">Dinner</option>
+          <option value="snack">Snack</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add Meal</button>
+    </form>
+
+    <div class = "table-container"></div>
+    <h2 class="mt-4">Meal Log</h2>
+    <table class="table mt-4">
       <thead>
         <tr>
           <th>Name</th>
-          <th>Serving Amount</th>
-          <th>Date & Time</th>
+          <th>Serving Size</th>
+          <th>Calories</th>
+          <th>Total Fat</th>
+          <th>Date</th>
           <th>Meal Type</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Pizza</td>
-          <td>1 slice</td>
-          <td>2023-06-28</td>
+          <td>Burger</td>
+          <td>1 burger</td>
+          <td>250</td>
+          <td>15g</td>
+          <td>2023-06-29</td>
+          <td>Lunch</td>
+        </tr>
+        <tr>
+          <td>Steak</td>
+          <td>8 oz</td>
+          <td>450</td>
+          <td>20g</td>
+          <td>2023-06-29</td>
           <td>Dinner</td>
         </tr>
         <tr>
-          <td>Salad</td>
-          <td>1 cup</td>
-          <td>2023-06-28</td>
-          <td>Lunch</td>
+          <td>Yogurt</td>
+          <td>150g</td>
+          <td>120</td>
+          <td>5g</td>
+          <td>2023-06-30</td>
+          <td>Breakfast</td>
         </tr>
-        <!-- Add more rows as needed -->
+        <tr>
+          <td>Apple</td>
+          <td>1 medium</td>
+          <td>95</td>
+          <td>0g</td>
+          <td>2023-06-30</td>
+          <td>Snack</td>
+        </tr>
       </tbody>
     </table>
+    <br>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/js/bootstrap.min.js"></script>
-</body>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    // Handle the form submission
+    document.getElementById("meal-form").addEventListener("submit", function(event) {
+      event.preventDefault();
 
+      // Retrieve the form data
+      const formData = new FormData(event.target);
+      const mealData = Object.fromEntries(formData.entries());
+
+      // Add the new meal to the table
+      const tableBody = document.querySelector("table tbody");
+      const newRow = document.createElement("tr");
+      newRow.innerHTML = `
+        <td>${mealData.name}</td>
+        <td>${mealData.servingSize}</td>
+        <td>${mealData.calories}</td>
+        <td>${mealData.totalFat}</td>
+        <td>${mealData.date}</td>
+        <td>${mealData.mealType}</td>
+      `;
+      tableBody.appendChild(newRow);
+
+      // Reset the form
+
+      event.target.reset();
+    });
+
+
+  </script>
+  
+</body>
+<script src="/js/logout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
+crossorigin="anonymous"></script>
 </html>
