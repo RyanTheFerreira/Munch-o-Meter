@@ -46,4 +46,13 @@ router.get('/register', (req, res) => {
 
 });
 
+// Add a new route for the nutrition page
+router.get('/nutrition', withAuth, (req, res) => {
+  res.render('nutrition', {
+    // Pass any necessary data to the nutrition template
+    logged_in: req.session.logged_in,
+  });
+});
+
+
 module.exports = router;
