@@ -1,14 +1,10 @@
-<!-- Loop over each user object -->
-{{#each users as |user| }}
+<!-- Loop over each food object -->
+{{#each foods as |food| }}
 <div class="row align-center mb-5">
   <div class="col-md-6">
     <!-- Render user-specific data with Handlebars.js expressions -->
-    <h2>{{{get_emoji}}} {{user.username}}</h2>
+    <h2>{{food.name}} - {{food.serving_amount}} - {{food.meal_type}} - {{food.date_time}} - {{food.user_id}}</h2>
   </div>
-  <div class="col-md-6">
-    <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
-  </div>
-  <h1> Necesito Ayuda famila</h1>
 </div>
 {{/each}}
 
