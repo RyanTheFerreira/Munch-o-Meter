@@ -1,248 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Nutrition Table</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registry </title>
+  <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-  <style>
-    .header {
-      background-image: url("/assest/Images/mainp-image.jpg");
-      background-size: cover;
-      background-position: center;
-      height: 200px;
-      position: relative;
-      border-radius: 18px;
-    }
+  <div class="bgimage"></div>"
 
-    .header-title {
-      text-align: right;
-      color: #fff;
-      padding-top: 120px;
-      font-size: xx-large;
-      display: inline-block;
-      animation: waveText 2s ease-in-out infinite;
-      padding-left: 422px;
-      font-weight: 600;
-    }
+  </head>
 
-    @keyframes waveText {
-      0% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-
-    .container {
-      margin-top: 20px;
-      margin-bottom: 200px;
-      background-color: #e6b043;
-    border-radius: 17px;
-    border-left-style: solid;
-    }
-    
-    .form-container {
-      display: inline-block;
-      width: 40%;
-      vertical-align: top;
-    }
-
-    .table-container {
-      display: inline-block;
-      width: 55%;
-      margin-left: 5%;
-    }
-
-  </style>
-</head>
-<body>
-  <div class="header">
-    <h1 class="header-title">
-      <span class="d-inline-block" style="animation-delay: 0s;">M</span>
-      <span class="d-inline-block" style="animation-delay: 0.1s;">u</span>
-      <span class="d-inline-block" style="animation-delay: 0.2s;">n</span>
-      <span class="d-inline-block" style="animation-delay: 0.3s;">c</span>
-      <span class="d-inline-block" style="animation-delay: 0.4s;">h</span>
-      <span class="d-inline-block" style="animation-delay: 0.5s;">-</span>
-      <span class="d-inline-block" style="animation-delay: 0.6s;">O</span>
-      <span class="d-inline-block" style="animation-delay: 0.7s;">-</span>
-      <span class="d-inline-block" style="animation-delay: 0.8s;">M</span>
-      <span class="d-inline-block" style="animation-delay: 0.9s;">e</span>
-      <span class="d-inline-block" style="animation-delay: 1s;">t</span>
-      <span class="d-inline-block" style="animation-delay: 1.1s;">e</span>
-      <span class="d-inline-block" style="animation-delay: 1.2s;">r</span>
-           
-    </h1>
-  </div>
-  
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <p><h2> Main Menu:</h2></p>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/register" >Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/nutrition">Nutrition</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/aboutus">About us</a>
-          </li>
-        </ul>
-      </div>
+  <body>
+    <div>
+    <h1>Welcome to Munch O Meter Home Page!</h1> 
     </div>
-  </nav>
-  <div class="container">
-    <h1 class="mt-4">Nutrition Table</h1>
-
-    <h2 class="mt-4">Please enter the Name of the food you want information on!</h2>
-    <form id="meal-form">
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" class="form-control" id="name" name="name" required>
-      </div>
-
-      <div class="form-group">
-        <label for="serving-size">Serving Size:</label>
-        <input type="text" class="form-control" id="serving-size" name="servingSize" required>
-       </div>
-       <div class="form-group">
-        
-        <button type="button" class="btn btn-primary" id="search-button">Search</button>
-      </div>
-
-      <div class="form-group">
-        <label for="date">Date:</label>
-        <input type="date" class="form-control" id="date" name="date" required>
-      </div>
-
-      <div class="form-group">
-        <label for="meal-type">Meal Type:</label>
-        <select class="form-control" id="meal-type" name="mealType" required>
-          <option value="">Select Meal Type</option>
-          <option value="breakfast">Breakfast</option>
-          <option value="lunch">Lunch</option>
-          <option value="dinner">Dinner</option>
-          <option value="snack">Snack</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Add Meal</button>
-        
-      </div>
-    </form>
-
-    <div class="table-container"></div>
-    <h2 class="mt-4">Meal Log</h2>
-    <table class="table mt-4">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Serving Size</th>
-          <th>Calories</th>
-          <th>Total Fat</th>
-          <th>Date</th>
-          <th>Meal Type</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Burger</td>
-          <td>1 burger</td>
-          <td>250</td>
-          <td>15g</td>
-          <td>2023-06-29</td>
-          <td>Lunch</td>
-        </tr>
-        <tr>
-          <td>Steak</td>
-          <td>8 oz</td>
-          <td>450</td>
-          <td>20g</td>
-          <td>2023-06-29</td>
-          <td>Dinner</td>
-        </tr>
-        <tr>
-          <td>Yogurt</td>
-          <td>150g</td>
-          <td>120</td>
-          <td>5g</td>
-          <td>2023-06-30</td>
-          <td>Breakfast</td>
-        </tr>
-        <tr>
-          <td>Apple</td>
-          <td>1 medium</td>
-          <td>95</td>
-          <td>0g</td>
-          <td>2023-06-30</td>
-          <td>Snack</td>
-        </tr>
-      </tbody>
-    </table>
-    <br>
+ 
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Munch O Meter</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/register" >Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/nutrition">Nutrition</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/aboutus">About us</a>
+        </li>
+      </ul>
+    </div>
   </div>
+</nav>
 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <script>
-    // Handle the form submission
-    document.getElementById("meal-form").addEventListener("submit", function(event) {
-      event.preventDefault();
 
-      // Retrieve the form data
-      const formData = new FormData(event.target);
-      const mealData = Object.fromEntries(formData.entries());
 
-      // Add the new meal to the table
-      const tableBody = document.querySelector("table tbody");
-      const newRow = document.createElement("tr");
-      newRow.innerHTML = `
-        <td>${mealData.name}</td>
-        <td>${mealData.servingSize}</td>
-        <td>${mealData.calories}</td>
-        <td>${mealData.totalFat}</td>
-        <td>${mealData.date}</td>
-        <td>${mealData.mealType}</td>
-      `;
-      tableBody.appendChild(newRow);
+    {{!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/nutrition">Main Menu:</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/register" >Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/nutrition">Nutrition</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="logout">Logout</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav> --}}
+    {{!-- <nav class="navbar bg-primary" data-bs-theme="dark">
+  <!-- Navbar content -->          
+             <a class="btn btn-primary" href="/register" role="button">Register</a>
+             <a class="btn btn-primary" href="/login" role="button">Login</a>
+             <a class="btn btn-primary" href="/" role="button">Home</a>
+             <a class="btn btn-primary" id="logout">logout</button></a>
+    
+     </nav>
+      --}}
+   
 
-      // Reset the form
-      event.target.reset();
-    });
+</div>
 
-    // Handle the search button click
-    document.getElementById("search-button").addEventListener("click", function(event) {
-      event.preventDefault();
-
-      // Retrieve the search query
-      const searchQuery = document.getElementById("name").value;
+  <main class="container container-fluid mt-5">
+    {{{ body }}}
+  </main>
+  <footer>
       
-      // Perform the search logic here...
-      // You can use the searchQuery to fetch data or display results
-
-      // Clear the form input
-      document.getElementById("name").value = "";
-    });
-
-  </script>
-  
+  </footer>
 </body>
-<script src="/js/logout.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
-crossorigin="anonymous"></script>
+  <script src="/js/logout.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </html>

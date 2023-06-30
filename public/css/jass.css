@@ -12,7 +12,7 @@ html {
   /* 2 */
 }
 
-.bgimage{
+.bg-image{
   background-image: url("/image/mainp-image.jpg");
       background-size: cover;
       width: 100%;
