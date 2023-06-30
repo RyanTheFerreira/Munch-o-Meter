@@ -54,5 +54,13 @@ router.get('/nutrition', withAuth, (req, res) => {
   });
 });
 
+// Add a new route for the about page
+router.get('/about', withAuth, (req, res) => {
+  res.render('about', {
+    // Pass any necessary data to the nutrition template
+    // logged_in: req.session.logged_in,
+  });
+});
+
 
 module.exports = router;
