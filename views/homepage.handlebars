@@ -1,24 +1,27 @@
-<!-- Loop over each food object -->
-{{#each foods as |food| }}
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <!-- Render user-specific data with Handlebars.js expressions -->
-    <h2>{{food.name}} - {{food.serving_amount}} - {{food.meal_type}} - {{food.date_time}} - {{food.user_id}}</h2>
-  </div>
-</div>
-{{/each}}
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>My Homepage</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-  <script src="homepage.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- <script src="homepage.js"></script> -->
 </head>
 <body>
-  <!-- Your HTML content goes here -->
-
+  <!-- Loop over each food object -->
+  <div class="row align-center mb-5">
+    <div class="col-md-6">
+        <h2>Hi, {{user.username}}!</h2>
+        <h5>Here is your food history:</h5>
+      <ul>
+        {{#each foods as |food| }}
+        <!-- Render user-specific data with Handlebars.js expressions -->
+        <li>{{food.name}} - {{food.serving_amount}} - {{food.meal_type}} - {{food.date_time}} - {{food.user_id}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
   <script id="homepageTemplate" type="text/x-handlebars-template" src="homepage.handlebars"></script>
 </body>
 </html>
