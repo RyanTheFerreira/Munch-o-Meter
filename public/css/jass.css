@@ -11,7 +11,32 @@ html {
   -webkit-text-size-adjust: 100%;
   /* 2 */
 }
+/* THIsection is were we change the nutrition section */
+h2.mt-4 {
+text-align: left;
+text-decoration: underline;
+}
 
+h1.mt-4{
+padding-top: 6px;
+text-align: center;
+text-decoration: underline;
+}
+
+a.navbar-brand{
+font-size: xx-large;
+font-weight: 600;
+}
+
+.bg-image{
+  background-image: url("/image/mainp-image.jpg");
+      background-size: cover;
+      background-position: center;
+      height: 200px;
+      position: relative;
+      border-radius: 18px;
+
+}
 /* Sections
    ========================================================================== */
 /**
@@ -19,7 +44,7 @@ html {
  */
 body {
   margin: 0;
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
 }
 
 /**
@@ -38,7 +63,7 @@ h1 {
   margin: 0.67em 0;
   border-radius: 3px;
   border: #000000;
-  background-color: #31e1bd;
+  /* background-color: #31e1bd; */
 }
 
 /* Grouping content
@@ -480,6 +505,7 @@ a:hover {
 
 .m-4 {
   margin: 1.375rem;
+  
 }
 
 .m-5 {
