@@ -20,7 +20,7 @@ FoodInfo.init(
       allowNull: false,
     },
     date_time: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     meal_type: {
