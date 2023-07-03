@@ -28,6 +28,22 @@ font-size: xx-large;
 font-weight: 600;
 }
 
+.food-image{
+  background-image: url("/image/food\ image.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  position: relative;
+  border-radius: 18px;
+}
+
+/* Food image modification  */
+.h5{
+  margin-top: 0;
+  margin-bottom: 0rem;
+  padding-left: 14px;
+}
+
 .bg-image{
   background-image: url("/image/mainp-image.jpg");
       background-size: cover;
