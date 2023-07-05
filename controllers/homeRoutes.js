@@ -57,12 +57,35 @@ router.get('/register', (req, res) => {
 });
 
 // Add a new route for the nutrition page
-router.get('/nutrition', withAuth, (req, res) => {
-  res.render('nutrition', {
-    // Pass any necessary data to the nutrition template
-    logged_in: req.session.logged_in,
-  });
+router.get('/nutrition', withAuth, async (req, res) => {
+  try {
+    const foodData = await FoodInfo.findAll({
+      where: {user_id: req.session.user_id},
+      attributes: { exclude: ['id'] },
+      order: [['date_time', 'DESC']],
+    });
+
+    const userData = await User.findAll({
+      where: {id: req.session.user_id},
+    });
+
+    const foods = foodData.map((project) => project.get({ plain: true }));
+    const users = userData.map((project) => project.get({ plain: true }));
+
+    const user = users[0];
+
+    res.render('nutrition', {
+      foods,
+      user,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
+
 
 // Add a new route for the about page
 router.get('/about.handlebars', withAuth, (req, res) => {

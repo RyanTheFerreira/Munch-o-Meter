@@ -77,51 +77,32 @@
     <div class="row">
       <div class="col-md-6">
         <div class="table-container">
-          <h2 class="mt-4">Meal Log</h2>
-          <table class="table mt-4">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Serving Size</th>
-                <th>Calories</th>
-                <th>Total Fat</th>
-                <th>Date</th>
-                <th>Meal Type</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Burger</td>
-                <td>1 burger</td>
-                <td>250</td>
-                <td>15g</td>
-                <td>2023-06-29</td>
-                <td>Lunch</td>
-              </tr>
-              <tr>
-                <td>Steak</td>
-                <td>8 oz</td>
-                <td>450</td>
-                <td>20g</td>
-                <td>2023-06-29</td>
-                <td>Dinner</td>
-              </tr>
-              <tr>
-                <td>Yogurt</td>
-                <td>150g</td>
-                <td>120</td>
-                <td>5g</td>
-                <td>2023-06-30</td>
-                <td>Breakfast</td>
-              </tr>
-              <tr>
-                <td>Apple</td>
-                <td>1 medium</td>
-                <td>95</td>
-                <td>0g</td>
-                <td>2023-06-30</td>
-                <td>Snack</td>
-              </tr>
+          <div class="row align-center mb-5">
+    <div>
+        <h2>Hi, {{user.username}}!</h2>
+        <h5>Here is your food history:</h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Food Name</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Meal Type</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each foods as |food|}}
+            <tr>
+              <td>{{food.name}}</td>
+              <td>{{food.serving_amount}}</td>
+              <td>{{food.meal_type}}</td>
+              <td>{{food.date_time}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
             </tbody>
           </table>
         </div>
