@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nutrition Table</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+ 
+    <h1 class="mt-4">Nutrition Table</h1>
+
+    <h2 class="mt-4">Please enter the Name of the food you want information on!</h2>
+    <form id="meal-form">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="serving-size">Serving Size:</label>
+        <input type="text" class="form-control" id="serving-size" name="servingSize" required>
+      </div>
+   <div class="form-group">
+        
+        <button type="button" class="btn btn-primary" id="search-button">Search</button>
+      </div>
+        <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" class="form-control" id="date" name="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="meal-type">Meal Type:</label>
+        <select class="form-control" id="meal-type" name="mealType" required>
+          <option value="">Select Meal Type</option>
+          <option value="breakfast">Breakfast</option>
+          <option value="lunch">Lunch</option>
+          <option value="dinner">Dinner</option>
+          <option value="snack">Snack</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add Meal</button>
+    </form>
+
+    <div class = "table-container"></div>
+    <h2 class="mt-4">Meal Log</h2>
+    <table class="table mt-4">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Serving Size</th>
+          <th>Calories</th>
+          <th>Total Fat</th>
+          <th>Date</th>
+          <th>Meal Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Burger</td>
+          <td>1 burger</td>
+          <td>250</td>
+          <td>15g</td>
+          <td>2023-06-29</td>
+          <td>Lunch</td>
+        </tr>
+        <tr>
+          <td>Steak</td>
+          <td>8 oz</td>
+          <td>450</td>
+          <td>20g</td>
+          <td>2023-06-29</td>
+          <td>Dinner</td>
+        </tr>
+        <tr>
+          <td>Yogurt</td>
+          <td>150g</td>
+          <td>120</td>
+          <td>5g</td>
+          <td>2023-06-30</td>
+          <td>Breakfast</td>
+        </tr>
+        <tr>
+          <td>Apple</td>
+          <td>1 medium</td>
+          <td>95</td>
+          <td>0g</td>
+          <td>2023-06-30</td>
+          <td>Snack</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+  
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    // Handle the form submission
+    document.getElementById("meal-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Retrieve the form data
+      const formData = new FormData(event.target);
+      const mealData = Object.fromEntries(formData.entries());
+
+      // Add the new meal to the table
+      const tableBody = document.querySelector("table tbody");
+      const newRow = document.createElement("tr");
+      newRow.innerHTML = `
+        <td>${mealData.name}</td>
+        <td>${mealData.servingSize}</td>
+        <td>${mealData.calories}</td>
+        <td>${mealData.totalFat}</td>
+        <td>${mealData.date}</td>
+        <td>${mealData.mealType}</td>
+      `;
+      tableBody.appendChild(newRow);
+
+      // Reset the form
+
+      event.target.reset();
+    });
+
+
+  </script>
+  
+</body>
+<script src="/js/logout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
+crossorigin="anonymous"></script>
+</html>

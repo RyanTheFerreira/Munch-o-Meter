@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Registry </title>
+  <title>User Registry</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -29,14 +29,14 @@
            
     </h1>
   </div>
-  </div>"
+  </div>
  <style>
    
     .header-title {
       text-align: right;
       color: #fff;
       padding-top: 120px;
-      font-size: xx-large;
+      font-size: 50px;
       display: inline-block;
       animation: waveText 2s ease-in-out infinite;
       padding-left: 60%;
@@ -57,12 +57,12 @@
 
     .container {
       margin-top: 20px;
-      margin-bottom: 200px;
-      background-color: #e6b043;
+     /** margin-bottom: 200px;**/
+      background-color: #e6b043b3;
     border-radius: 17px;
     border-left-style: solid;
     height: auto;
-    padding-bottom: 12px;
+    padding-bottom: 15px;
     }
     
     .form-container {
@@ -74,117 +74,65 @@
     .table-container {
       display: inline-block;
       width: 55%;
-      margin-left: 5%;
+      /**margin-left: 5%;**/
     }
 
+    
   </style>
 </head>
+
 <body>
-
-
-  <body>
-     
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Menu:</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/register" >Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/nutrition">Nutrition</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about.handlebars">About us</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="/logout" id="logout">Logout</a>
-        </li>
-
-      </ul>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Menu:</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/nutrition">Nutrition</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about.handlebars">About-Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/" id="">History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/" id="logout">Logout</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
-
-
-
-
-    {{!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/nutrition">Main Menu:</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/register" >Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/nutrition">Nutrition</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="logout">Logout</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav> --}}
-    {{!-- <nav class="navbar bg-primary" data-bs-theme="dark">
-  <!-- Navbar content -->          
-             <a class="btn btn-primary" href="/register" role="button">Register</a>
-             <a class="btn btn-primary" href="/login" role="button">Login</a>
-             <a class="btn btn-primary" href="/" role="button">Home</a>
-             <a class="btn btn-primary" id="logout">logout</button></a>
-    
-     </nav>
-      --}}
-   
-
-</div>
+  </nav>
 
   <main class="container container-fluid mt-5">
-     {{{ body }}}
+    {{{ body }}}
   </main>
-  <footer>
-      
+
+  <footer class="footer">
+    <!-- Footer content -->
   </footer>
-</body>
+
   <script src="/js/logout.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
-<script>
-  document.getElementById("logout").addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent the default link behavior
-    // Perform logout logic here (e.g., clearing session, local storage, etc.)
-    // Redirect to the login page
-    window.location.href = "/login";
-  });
-</script>
+  <script>
+    document.getElementById("logout").addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent the default link behavior
+      // Perform logout logic here (e.g., clearing session, local storage, etc.)
+      // Redirect to the login page
+      window.location.href = "/login";
+    });
 
-
+   
+  </script>
 </html>

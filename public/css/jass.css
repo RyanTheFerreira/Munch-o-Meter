@@ -5,6 +5,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+
 html {
   line-height: 1.15;
   /* 1 */
@@ -22,11 +23,20 @@ padding-top: 6px;
 text-align: center;
 text-decoration: underline;
 }
+/* padding for the inner boxes */
+.col-md-6 {
+  flex: 0 0 auto;
+  width: 50%;
+  padding: 11px;
+}
 
 a.navbar-brand{
 font-size: xx-large;
 font-weight: 600;
+/* background-color: yellowgreen; */
 }
+
+
 
 .food-image{
   background-image: url("/image/food\ image.jpg");
@@ -48,11 +58,54 @@ font-weight: 600;
   background-image: url("/image/mainp-image.jpg");
       background-size: cover;
       background-position: center;
-      height: 200px;
+      height: 281px;
       position: relative;
       border-radius: 18px;
-
 }
+
+.recipe{
+  background-image: url("/image/recipie.jpg");
+    background-size: cover;
+      background-position: center;
+      height: 281px;
+      /* margin-right: 512px; */
+      position: relative;
+      border-radius: 18px;
+}
+
+.recipe2{
+  background-image: url("/image/recipe2.jpg");
+    background-size: cover;
+      background-position: center;
+      height: 281px;
+      /* margin-left: 512px; */
+      position: relative;
+      border-radius: 18px;
+}
+
+/* image card in about page  */
+.card .card-body {
+  padding: 0.375rem;
+  background-color: #9acd32c4;
+}
+
+.bg-body-tertiary {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-tertiary-bg-rgb),var(--bs-bg-opacity))!important;
+  /* width: 321px; */
+  border-radius: 18px;
+}
+
+
+.title{
+  text-decoration: underline;
+}
+.col-md-6 {
+  flex: 0 0 auto;
+  width: 50%;
+  height: 342px;
+}
+
 /* Sections
    ========================================================================== */
 /**
@@ -74,11 +127,12 @@ main {
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
  */
-h1 {
+h1 { 
   font-size: 2em;
   margin: 0.67em 0;
   border-radius: 3px;
   border: #000000;
+  /* text-decoration: underline; */
   /* background-color: #31e1bd; */
 }
 
