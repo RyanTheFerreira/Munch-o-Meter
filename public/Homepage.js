@@ -8,7 +8,7 @@ $(document).ready(function() {
 $.ajax({
     method: 'GET',
     url: 'https://api.calorieninjas.com/v1/nutrition?query=' + query,
-    headers: { 'X-Api-Key': 'YOUR_API_KEY'},
+    headers: { 'X-Api-Key': 'CNINJA_API'},
     contentType: 'application/json',
     success: function(result) {
         console.log(result);
@@ -39,7 +39,7 @@ var query = ''
 $.ajax({
     method: 'GET',
     url: 'https://api.calorieninjas.com/v1/recipe?query=' + query,
-    headers: { 'X-Api-Key': 'YOUR_API_KEY'},
+    headers: { 'X-Api-Key': 'CNINJA_API'},
     contentType: 'application/json',
     success: function(result) {
         console.log(result);
