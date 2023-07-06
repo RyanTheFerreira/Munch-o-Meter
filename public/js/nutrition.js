@@ -9,7 +9,7 @@ const searchFood = async (event) => {
   event.preventDefault();
   console.log('searching food');
   try {
-    const query = foodName.value.trim() + ' ' + servingSize.value.trim();
+    const query = servingSize.value.trim() + ' ' + foodName.value.trim();
     const response = await fetch('/api/food/nutrition?query=' + query);
     if (response.ok) {
       const result = await response.json();
