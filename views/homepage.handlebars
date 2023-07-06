@@ -26,7 +26,9 @@
         <tbody>
           {{#each foods as |food|}}
             <tr>
-              <td>{{food.name}}</td>
+              <div data-bs-toggle="tooltip" data-bs-html="true" data-bs-original-title="">
+                <td data-food="{{food.name}} {{food.serving_amount}}">{{food.name}}</td>
+              </div>
               <td>{{food.serving_amount}}</td>
               <td>{{food.meal_type}}</td>
               <td>{{food.date_time}}</td>
