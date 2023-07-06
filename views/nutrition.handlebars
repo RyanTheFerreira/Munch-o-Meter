@@ -9,16 +9,19 @@
     .table-container {
       width: 100%;
       margin-bottom: 1rem;
+      max-height: 320px; /* Set the maximum height for scrolling */
+      overflow-y: auto; /* Enable vertical scrolling */
     }
 
-    .search-history-container {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 1rem;
+    .nutrition-card {
+      margin-top: 1rem;
     }
 
-    .search-history-log {
-      width: 49%;
+    .nutrition-card .card-body {
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
     }
   </style>
 </head>
@@ -71,6 +74,7 @@
             </form>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -78,87 +82,105 @@
       <div class="col-md-6">
         <div class="table-container">
           <div class="row align-center mb-5">
-    <div>
-        <h2>Hi, {{user.username}}!</h2>
-        <h5>Here is your food history:</h5>
+            <div>
+              <h2>Hi, {{user.username}}!</h2>
+              <h5>Here is your food history:</h5>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Food Name</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Meal Type</th>
+                    <th scope="col">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each foods as |food|}}
+                    <tr>
+                      <td>{{food.name}}</td>
+                      <td>{{food.serving_amount}}</td>
+                      <td>{{food.meal_type}}</td>
+                      <td>{{food.date_time}}</td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <div class="col-md-6">
+  <div class="card nutrition-card">
+    <div class="card-body">
+      <h2 class="card-title">Nutrition Information</h2>
       <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Food Name</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Meal Type</th>
-            <th scope="col">Date</th>
-          </tr>
-        </thead>
         <tbody>
-          {{#each foods as |food|}}
-            <tr>
-              <td>{{food.name}}</td>
-              <td>{{food.serving_amount}}</td>
-              <td>{{food.meal_type}}</td>
-              <td>{{food.date_time}}</td>
-            </tr>
-          {{/each}}
+          <tr>
+            <td>Food Item:</td>
+            <td><span id="food-name"></span></td>
+          </tr>
+          <tr>
+            <td>Calories:</td>
+            <td><span id="calories"></span></td>
+          </tr>
+          <tr>
+            <td>Sugar:</td>
+            <td><span id="sugar"></span></td>
+          </tr>
+          <tr>
+            <td>Sodium:</td>
+            <td><span id="sodium"></span></td>
+          </tr>
+          <tr>
+            <td>Total Fat:</td>
+            <td><span id="total-fat"></span></td>
+          </tr>
+          <tr>
+            <td>Cholesterol:</td>
+            <td><span id="cholesterol"></span></td>
+          </tr>
+          <tr>
+            <td>Protein:</td>
+            <td><span id="protein"></span></td>
+          </tr>
+          <tr>
+            <td>Carbohydrates:</td>
+            <td><span id="carbohydrates"></span></td>
+          </tr>
         </tbody>
       </table>
     </div>
   </div>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="search-history-container">
-          <div class="card">
-            <div class="card-body">
-              <h2 class="card-title">Search History</h2>
-              <form id="search-history-form">
-                <div class="form-group">
-                  <label for="search-data">Search Data:</label>
-                  <textarea class="form-control" id="search-data" name="searchData" required></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="search-date">Date and Time:</label>
-                  <input type="datetime-local" class="form-control" id="search-date" name="searchDate" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Add to History</button>
-              </form>
-            </div>
-          </div>
-          <div class="card search-history-log">
-            <div class="card-body" id="search-history">
-              <h2 class="card-title">Search History Log</h2>
-              <!-- Search history entries will be dynamically added here -->
+</div>
+<br>
+<br>
+<br>
+<br>
+
+    <!-- Recipe search area -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mt-4">
+          <div class="card-body">
+            <h2 class="card-title">Search Recipes</h2>
+            <form id="recipe-search-form">
+              <div class="form-group">
+                <label for="recipe-input">Enter Food Recipe Name:</label>
+                <input type="text" class="form-control" id="recipe-input" name="recipeInput" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <div class="mt-4"></div>```html
+              <div class="mt-4" id="recipe-results">
+                <!-- Recipe search results will be dynamically added here -->
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-{{!-- Here is hte recepie search area --}}
-
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h2 class="card-title">Search Recipes</h2>
-          <form id="recipe-search-form">
-            <div class="form-group">
-              <label for="recipe-input">Enter food Recipe Name:</label>
-              <input type="text" class="form-control" id="recipe-input" name="recipeInput" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Search</button>
-          </form>
-          <div class="mt-4" id="recipe-results">
-            <!-- Recipe search results will be dynamically added here -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script>
