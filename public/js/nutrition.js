@@ -11,9 +11,6 @@ const addFood = async (event) => {
     const serving_amount = servingSize.value.trim();
     const date_time = date.value.trim();
     const meal_type = mealType.value.trim();
-    //const user_id = sess.user_id;
-
-    console.log(name, serving_amount, date_time, meal_type);
 
     if (name && serving_amount && date_time && meal_type) {
       const response = await fetch('/api/food/addfood', {
@@ -22,8 +19,7 @@ const addFood = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
       if (response.ok) {
-        //document.location.replace('/');
-        console.log(name, serving_amount, date_time, meal_type);
+        document.location.replace('/nutrition');
       } else {
         alert('Failed to add food');
       }
