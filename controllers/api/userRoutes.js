@@ -1,24 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-/// this is a test in this page
-
-
-router.post('/', async (req, res) => {
-  try {
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
 // Route for user registration
 router.post('/register', async (req, res) => {
   try {
@@ -26,7 +8,6 @@ router.post('/register', async (req, res) => {
     console.log(req.body);
     // Code to create a new user in the database
     const newUser = await User.create({ username, email, password });
-    console.log(newUser);
     req.session.save(() => {
       req.session.user_id = newUser.id;
       req.session.logged_in = true;
@@ -102,7 +83,5 @@ router.get('/profile', async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch user profile.' });
   }
 });
-
-
 
 module.exports = router;

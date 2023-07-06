@@ -20,7 +20,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const user = users[0];
 
-    res.render('homepage', {
+    res.render('nutrition', {
       foods,
       user,
       // Pass the logged in flag to the template
@@ -88,12 +88,11 @@ router.get('/nutrition', withAuth, async (req, res) => {
 
 
 // Add a new route for the about page
-router.get('/about.handlebars', withAuth, (req, res) => {
-  res.render('about.handlebars', {
+router.get('/about', (req, res) => {
+  res.render('about', {
     // Pass any necessary data to the nutrition template
     logged_in: req.session.logged_in,
   });
 });
-
 
 module.exports = router;
