@@ -67,7 +67,6 @@
     @keyframes waveText {
       0% {
         transform: translateY(0);
-```html
       }
       50% {
         transform: translateY(-10px);
@@ -118,11 +117,13 @@
               <a class="nav-link" href="/login">Login</a>
             </li>
           {{/unless}}
+          {{#if logged_in}}
+            <li class="nav-item">
+              <a class="nav-link" href="/">Nutrition</a>
+            </li>
+          {{/if}}
           <li class="nav-item">
-            <a class="nav-link" href="/nutrition">Nutrition</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about.handlebars">About-Us</a>
+            <a class="nav-link" href="/about">About-Us</a>
           </li>
           {{#if logged_in}}
             <li class="nav-item">

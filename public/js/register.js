@@ -17,7 +17,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/nutrition');
+        document.location.assign('/');
       } else {
         alert('Failed to register');
       }
