@@ -105,12 +105,12 @@ height: 70px;
 .container.container-fluid
 .container {
  
-  height: 777px;
+  height: 100%;
 }
 
 .container.container-fluid {
   width: 92%;
-  height: 950px;
+  height: 100%;
 }
 /* nutrition infomration take grid out */
 
