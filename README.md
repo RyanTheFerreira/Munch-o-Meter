@@ -40,6 +40,7 @@ The application runs independently in Heroku.
  1. Austin Auswaller
  2. Ryan Ferreira
  3. Dennis Luciano
+ 4. Luis Quincano - Assistance with error 502
 
  ## License
  
