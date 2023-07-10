@@ -47,5 +47,5 @@ The application runs independently in Heroku.
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Deployment
-1. Github: https://dencoding2023.github.io/Munch-o-Meter/
+1. Github: https://github.com/RyanTheFerreira/Munch-o-Meter/edit/main/README.md
 2. Heroku: https://munch-o-meter-d72207923161.herokuapp.com/
